@@ -13,5 +13,159 @@
     "submittedAt": "2020-08-21 22:45:14",
     "guestName": "Shane Finkelstein",
     "listingName": "2B N1 A - 29 Shoreditch Heights"
+  },
+  
+  {
+    "id": 1001,
+    "type": "guest-to-host",
+    "status": "published",
+    "rating": 9,
+    "publicReview": "Great stay, very clean and host was responsive.",
+    "reviewCategory": [
+      { "category": "cleanliness", "rating": 9 },
+      { "category": "communication", "rating": 10 },
+      { "category": "location", "rating": 8 }
+    ],
+    "submittedAt": "2025-07-10 15:30:00",
+    "guestName": "Alice Chen",
+    "listingName": "Modern 2 Bed Flat in Primrose Hill"
+  },
+  {
+    "id": 1002,
+    "type": "guest-to-host",
+    "status": "published",
+    "rating": 7,
+    "publicReview": "Nice flat but WiFi was weak on the first night.",
+    "reviewCategory": [
+      { "category": "cleanliness", "rating": 8 },
+      { "category": "wifi", "rating": 6 },
+      { "category": "communication", "rating": 7 }
+    ],
+    "submittedAt": "2025-07-14 18:20:00",
+    "guestName": "Ben Fox",
+    "listingName": "Modern 2 Bed Flat in Primrose Hill"
+  },
+  {
+    "id": 1003,
+    "type": "guest-to-host",
+    "status": "published",
+    "rating": 8,
+    "publicReview": "Check-in was smooth, good kitchen amenities.",
+    "reviewCategory": [
+      { "category": "check_in", "rating": 9 },
+      { "category": "amenities", "rating": 8 },
+      { "category": "cleanliness", "rating": 7 }
+    ],
+    "submittedAt": "2025-07-18 09:00:00",
+    "guestName": "Cathy Li",
+    "listingName": "Modern 2 Bed Flat in Primrose Hill"
+  },
+
+  {
+    "id": 2001,
+    "type": "guest-to-host",
+    "status": "published",
+    "rating": 10,
+    "publicReview": "Amazing location, spotless flat, will return!",
+    "reviewCategory": [
+      { "category": "cleanliness", "rating": 10 },
+      { "category": "communication", "rating": 10 },
+      { "category": "location", "rating": 10 }
+    ],
+    "submittedAt": "2025-06-25 21:00:00",
+    "guestName": "Daniel Kim",
+    "listingName": "2 Bed Balcony Flat near Wembley Park"
+  },
+  {
+    "id": 2002,
+    "type": "guest-to-host",
+    "status": "published",
+    "rating": 6,
+    "publicReview": "Flat is cozy but a bit noisy at night from the street.",
+    "reviewCategory": [
+      { "category": "noise", "rating": 5 },
+      { "category": "location", "rating": 7 },
+      { "category": "cleanliness", "rating": 6 }
+    ],
+    "submittedAt": "2025-07-05 23:15:00",
+    "guestName": "Emma Stone",
+    "listingName": "2 Bed Balcony Flat near Wembley Park"
+  },
+  {
+    "id": 2003,
+    "type": "guest-to-host",
+    "status": "published",
+    "rating": 5,
+    "publicReview": "Heating didn’t work the first night but was fixed quickly.",
+    "reviewCategory": [
+      { "category": "comfort", "rating": 5 },
+      { "category": "support", "rating": 7 },
+      { "category": "communication", "rating": 8 }
+    ],
+    "submittedAt": "2025-06-20 11:45:00",
+    "guestName": "Frank Zhang",
+    "listingName": "2 Bed Balcony Flat near Wembley Park"
+  },
+  {
+    "id": 2004,
+    "type": "guest-to-host",
+    "status": "published",
+    "rating": 7,
+    "publicReview": "Good size flat but furniture feels a bit old.",
+    "reviewCategory": [
+      { "category": "furniture", "rating": 6 },
+      { "category": "cleanliness", "rating": 7 },
+      { "category": "location", "rating": 8 }
+    ],
+    "submittedAt": "2025-07-15 10:00:00",
+    "guestName": "Grace Lee",
+    "listingName": "2 Bed Balcony Flat near Wembley Park"
+  },
+
+  {
+    "id": 3001,
+    "type": "guest-to-host",
+    "status": "published",
+    "rating": 8,
+    "publicReview": "Spacious studio, close to transport.",
+    "reviewCategory": [
+      { "category": "location", "rating": 9 },
+      { "category": "cleanliness", "rating": 8 },
+      { "category": "comfort", "rating": 7 }
+    ],
+    "submittedAt": "2025-07-12 13:40:00",
+    "guestName": "Helen Wu",
+    "listingName": "Studio Apartment in Canary Wharf"
+  },
+  {
+    "id": 3002,
+    "type": "guest-to-host",
+    "status": "published",
+    "rating": 9,
+    "publicReview": "Host was very helpful, check-in easy.",
+    "reviewCategory": [
+      { "category": "check_in", "rating": 9 },
+      { "category": "communication", "rating": 9 },
+      { "category": "cleanliness", "rating": 9 }
+    ],
+    "submittedAt": "2025-07-16 08:00:00",
+    "guestName": "Ivan Petrov",
+    "listingName": "Studio Apartment in Canary Wharf"
+  },
+  {
+    "id": 3003,
+    "type": "guest-to-host",
+    "status": "published",
+    "rating": 6,
+    "publicReview": "Good location but bed was uncomfortable.",
+    "reviewCategory": [
+      { "category": "comfort", "rating": 5 },
+      { "category": "location", "rating": 8 },
+      { "category": "cleanliness", "rating": 6 }
+    ],
+    "submittedAt": "2025-07-20 22:00:00",
+    "guestName": "Jackie Chan",
+    "listingName": "Studio Apartment in Canary Wharf"
   }
+
 ]

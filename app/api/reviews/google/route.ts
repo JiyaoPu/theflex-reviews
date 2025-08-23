@@ -1,48 +1,52 @@
-// app/api/reviews/google/route.ts
 import { NextRequest, NextResponse } from "next/server";
-
-// 用法：GET /api/reviews/google?placeId=YOUR_PLACE_ID
-// 需要在 Vercel/本地设置环境变量 GOOGLE_MAPS_API_KEY
-// 注意：Google Places 返回的 reviews 通常只有少量（常见 ~5），且非时间排序。
 
 export const dynamic = "force-dynamic";
 
+/**
+ * Google Reviews Proxy (支持多个 placeId)
+ * Usage: GET /api/reviews/google?placeIds=ID1,ID2,ID3
+ * Env:   GOOGLE_MAPS_API_KEY 必须配置
+ */
 export async function GET(req: NextRequest) {
-  const placeId = req.nextUrl.searchParams.get("placeId");
+  const placeIdsParam = req.nextUrl.searchParams.get("placeIds");
   const apiKey = process.env.GOOGLE_MAPS_API_KEY;
 
-  if (!placeId || !apiKey) {
+  if (!placeIdsParam || !apiKey) {
     return NextResponse.json(
-      { status: "error", message: "Missing placeId or GOOGLE_MAPS_API_KEY." },
+      { status: "error", message: "Missing placeIds or GOOGLE_MAPS_API_KEY." },
       { status: 400 }
     );
   }
 
-  const url =
-    `https://maps.googleapis.com/maps/api/place/details/json` +
-    `?place_id=${encodeURIComponent(placeId)}` +
-    `&fields=reviews,rating,user_ratings_total,url` +
-    `&key=${apiKey}`;
+  const placeIds = placeIdsParam.split(",").map((id) => id.trim()).filter(Boolean);
 
-  try {
-    const resp = await fetch(url);
-    const data = await resp.json();
-    const reviews = data?.result?.reviews ?? [];
+  const results: any[] = [];
 
-    // 这里直接透明返回 Google 的 reviews；如需统一为 NormalizedReview，可在此做映射。
-    return NextResponse.json({
-      status: "success",
-      reviews,
-      meta: {
-        rating: data?.result?.rating,
-        total: data?.result?.user_ratings_total,
-        url: data?.result?.url,
-      },
-    });
-  } catch {
-    return NextResponse.json(
-      { status: "error", message: "Failed to fetch Google Place Details." },
-      { status: 500 }
-    );
+  for (const placeId of placeIds) {
+    const url =
+      `https://maps.googleapis.com/maps/api/place/details/json` +
+      `?place_id=${encodeURIComponent(placeId)}` +
+      `&fields=reviews,rating,user_ratings_total,url,name` +
+      `&key=${apiKey}`;
+
+    try {
+      const resp = await fetch(url);
+      const data = await resp.json();
+      results.push({
+        placeId,
+        name: data?.result?.name ?? null,
+        rating: data?.result?.rating ?? null,
+        total: data?.result?.user_ratings_total ?? null,
+        url: data?.result?.url ?? null,
+        reviews: data?.result?.reviews ?? [],
+      });
+    } catch (err) {
+      results.push({
+        placeId,
+        error: "Failed to fetch or parse Google data"
+      });
+    }
   }
+
+  return NextResponse.json({ status: "success", places: results });
 }
