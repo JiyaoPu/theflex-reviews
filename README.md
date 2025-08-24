@@ -29,12 +29,14 @@ Managers can filter, approve, and display reviews on a public page.
 
 ### 1. Clone the repo
 ```bash
-- git clone https://github.com/your-org/theflex-reviews.git
-- cd theflex-reviews
+git clone https://github.com/your-org/theflex-reviews.git
+cd theflex-reviews
+```
 
 ### 2. Install dependencies
 ```bash
 - npm install
+```
 
 ### 3. Run locally
 ```bash
@@ -42,3 +44,4 @@ Managers can filter, approve, and display reviews on a public page.
 - The app will be available at:
 - Dashboard → http://localhost:3000/
 - Review Page → http://localhost:3000/public
+```
