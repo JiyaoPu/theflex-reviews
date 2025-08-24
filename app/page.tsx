@@ -36,14 +36,10 @@ function decodePubParam(pub?: string | string[] | null) {
   }
 }
 
-// Build absolute base URL for server-side fetch (Vercel + local)
+// Build absolute base URL for server-side fetch (works on Vercel + local)
 function getServerBaseUrl() {
   const h = headers();
-  const host =
-    h.get("x-forwarded-host") ??
-    h.get("host") ??
-    process.env.VERCEL_URL ??
-    "localhost:3000";
+  const host = h.get("x-forwarded-host") ?? h.get("host") ?? process.env.VERCEL_URL ?? "localhost:3000";
   const proto = h.get("x-forwarded-proto") ?? (process.env.VERCEL ? "https" : "http");
   return `${proto}://${host}`;
 }
@@ -190,11 +186,24 @@ export default async function Page({
 
   // No ?pub → Dashboard mode
   return (
-    <main className="container-page">
-      <h1 className="title-1">Manager Dashboard</h1>
-      <div className="stack">
-        <DashboardClient reviews={reviews} aggregates={aggregates} />
+    <main style={{ minHeight: "100vh" }}>
+      {/* Hero section */}
+      <section className="hero" style={{ backgroundColor: "#284e4c" }} />
+      <div className="hero-wrap">
+        <div className="hero-card">
+          <h1 style={{ fontSize: 22, fontWeight: 600 }}>Manager Dashboard</h1>
+          <div className="mt-1 text-soft" style={{ fontSize: 14 }}>
+            View listings performance, filter & sort reviews, and approve them for the public page
+          </div>
+        </div>
       </div>
+
+      {/* Main content */}
+      <section className="container-page" style={{ paddingTop: 0 }}>
+        <div className="stack">
+          <DashboardClient reviews={reviews} aggregates={aggregates} />
+        </div>
+      </section>
     </main>
   );
 }
